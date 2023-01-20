@@ -48,41 +48,41 @@ public class Main {
     // ("(())") → true  //  ("((()))") → true  // ("(((x))") → false ==================
 
     public boolean nestParen(String str) {
-  if(str.length() == 0){
-    return true;
-  }
-  if(str.charAt(0) != '(' && str.charAt(str.length()-1) != ')'  || str.charAt(0) == '(' && str.charAt(str.length()-1) != ')' || str.charAt(0) != '(' && str.charAt(str.length()-1) == ')'){
-    return false;
-  }else{
-    return nestParen(str.substring(1,str.length()-1));
-  }
-}
+	  if(str.length() == 0){
+	    return true;
+	  }
+	  if(str.charAt(0) != '(' && str.charAt(str.length()-1) != ')'  || str.charAt(0) == '(' && str.charAt(str.length()-1) != ')' || str.charAt(0) != '(' && str.charAt(str.length()-1) == ')'){
+	    return false;
+	  }else{
+	    return nestParen(str.substring(1,str.length()-1));
+	  }
+	}
 
 // groupSum(0, [2, 4, 8], 10) → true ===============================
 
 public boolean groupSum(int start, int[] nums, int target) {
-  if(target == 0){
-    return true;
-  }
-  if(start == nums.length){
-    return false;
-  }
-  boolean sans = groupSum(start+1, nums, target  - nums[start]);
-  boolean ssans = groupSum(start+1,nums,target);
-  
-  if(sans == true || ssans == true){
-    return true;
-  }else{
-    return false;
-  }
+	  if(target == 0){
+	    return true;
+	  }
+	  if(start == nums.length){
+	    return false;
+	  }
+	  boolean sans = groupSum(start+1, nums, target  - nums[start]);
+	  boolean ssans = groupSum(start+1,nums,target);
+
+	  if(sans == true || ssans == true){
+	    return true;
+	  }else{
+	    return false;
+	  }
 }
 	
 	public static void main(String[] args) {
 		int[] arr = {2,4,8};
-		System.out.println(countHi2("abchiabchibc"));
-    System.out.println(parenBit("xyz(abc)123"));
-    System.out.println( nestParen( "((()))" ) );
-    System.out.println(groupSum(0,arr,10) );
+	    System.out.println(countHi2("abchiabchibc"));
+	    System.out.println(parenBit("xyz(abc)123"));
+	    System.out.println( nestParen( "((()))" ) );
+	    System.out.println(groupSum(0,arr,10) );
 	}
 
 }
